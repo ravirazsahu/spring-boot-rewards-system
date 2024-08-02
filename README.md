@@ -30,6 +30,12 @@ http://localhost:9010/retailer-rewards
 ```
 6. Please execute the insert queries available in the transaction_queries.sql file manually. For some reason, h2 db does not pick up this file while executing. I will fix that issue.
 
+## Technologies Used
+* Java 8
+* Spring Boot 2.6.3
+* Maven
+
+
 
 ## API Endpoints
 GET 
