@@ -66,3 +66,4 @@ insert into transaction(customer_id,amount,date) values ('Sam',200,'2024-07-18')
 }
 ```
 
+![api_postman_screenshot](https://github.com/user-attachments/assets/8d4671c0-72b9-49f8-ab15-ca23bff76e68)
