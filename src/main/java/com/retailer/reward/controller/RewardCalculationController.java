@@ -17,7 +17,7 @@ import com.retailer.reward.handlers.ResponseHandler;
 import com.retailer.reward.service.RewardCalculationService;
 
 @RestController
-@RequestMapping("/api/reward/")
+@RequestMapping("/api/reward")
 public class RewardCalculationController {
 //	private static final Logger logger = LoggerFactory.getLogger(RewardCalculationController.class);
 
