@@ -3,9 +3,9 @@ package com.retailer.reward.dto;
 public class MonthWisePointsDTO {
 
 	private String month;
-	private int points;
+	private Integer points;
 
-	public MonthWisePointsDTO(String month, int points) {
+	public MonthWisePointsDTO(String month, Integer points) {
 		this.month = month;
 		this.points = points;
 	}
@@ -18,11 +18,11 @@ public class MonthWisePointsDTO {
 		this.month = month;
 	}
 
-	public int getPoints() {
+	public Integer getPoints() {
 		return points;
 	}
 
-	public void setPoints(int points) {
+	public void setPoints(Integer points) {
 		this.points = points;
 	}
 

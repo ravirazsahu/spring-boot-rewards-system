@@ -4,9 +4,9 @@ import java.util.List;
 
 public class RewardsResponseDTO {
 
-	private int id;
+//	private Integer id;
 	private String name;
-	private int year;
+	private Integer year;
 	private List<MonthWisePointsDTO> monthWisePoints;
 	private double totalPoints;
 
@@ -14,23 +14,23 @@ public class RewardsResponseDTO {
 
 	}
 
-	public RewardsResponseDTO(int id, String name, int year, List<MonthWisePointsDTO> monthWisePoints,
+	public RewardsResponseDTO(Integer id, String name, Integer year, List<MonthWisePointsDTO> monthWisePoints,
 			double totalPoints) {
 		super();
-		this.id = id;
+//		this.id = id;
 		this.name = name;
 		this.year = year;
 		this.monthWisePoints = monthWisePoints;
 		this.totalPoints = totalPoints;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
+//	public Integer getId() {
+//		return id;
+//	}
+//
+//	public void setId(Integer id) {
+//		this.id = id;
+//	}
 
 	public String getName() {
 		return name;
@@ -40,11 +40,11 @@ public class RewardsResponseDTO {
 		this.name = name;
 	}
 
-	public int getYear() {
+	public Integer getYear() {
 		return year;
 	}
 
-	public void setYear(int year) {
+	public void setYear(Integer year) {
 		this.year = year;
 	}
 

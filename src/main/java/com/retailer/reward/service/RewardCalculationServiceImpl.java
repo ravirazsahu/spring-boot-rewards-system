@@ -57,17 +57,20 @@ public class RewardCalculationServiceImpl implements RewardCalculationService {
 			List<MonthWisePointsDTO> monthwisepoints = entry.getValue().entrySet().stream()
 					.map(mnthpoint -> new MonthWisePointsDTO(mnthpoint.getKey(), mnthpoint.getValue()))
 					.collect(Collectors.toList());
+
+			Integer year = rewardrepolist.stream().filter(tr -> tr.getCustomerId().equalsIgnoreCase(username))
+					.findFirst().map(m -> m.getDate().getYear()).orElse(LocalDate.now().getYear());
 			dto.setName(username);
 			dto.setMonthWisePoints(monthwisepoints);
 			dto.setTotalPoints(totalRewards.get(username));
+			dto.setYear(year);
 			return dto;
 		}).collect(Collectors.toList());
 	}
 
 	private Map<String, Integer> calculateMonthWiseRewardPoint(Map<String, Map<String, Integer>> monthwiserewards) {
 		return monthwiserewards.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey,
-				ent -> ent.getValue().values().stream().mapToInt(Integer::intValue).sum()));
-
+				entry -> entry.getValue().values().stream().mapToInt(Integer::intValue).sum()));
 	}
 
 	private int calculateRewardPoints(double amount) {
