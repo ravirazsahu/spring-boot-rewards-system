@@ -1,7 +1,10 @@
 package com.retailer.reward.service;
 
+import java.util.List;
 import java.util.Map;
 
+import com.retailer.reward.dto.RewardsResponseDTO;
+
 public interface RewardCalculationService {
-	public Map<String, Map<String, Integer>> calculateRewards();
+	public List<RewardsResponseDTO> calculateRewards();
 }
