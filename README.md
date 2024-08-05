@@ -8,6 +8,9 @@ for every dollar spent between $50 and $100 in each transaction.
 
 (e.g. a $120 purchase = 2x$20 + 1x$50 = 90 points).
 
+The application processes transaction records over a three-month period and calculates the reward points earned by each customer on a monthly basis as well as their total points.
+
+
 ## Installation
 
 1.Clone the repository i.e  
@@ -33,6 +36,8 @@ http://localhost:9010/retailer-rewards
 ## Technologies Used
 * Java 8
 * Spring Boot 2.6.3
+* swagger
+* Junit
 * Maven
 
 
@@ -46,30 +51,75 @@ GET
 
 **Example:** To retrieve reward points, send a GET request to 
 ```bash
-http://localhost:9010/retailer-rewards/api/reward/
+http://localhost:9010/retailer-rewards/api/reward
 ```
+
 **sample data:**
-```bash
-insert into transaction(customer_id,amount,date) values ('Roxy',120,'2024-04-18');
-insert into transaction(customer_id,amount,date) values ('Roxy',80,'2024-05-10');
-insert into transaction(customer_id,amount,date) values ('Jack',60,'2024-02-11');
-insert into transaction(customer_id,amount,date) values ('Jack',150,'2024-02-18');
-insert into transaction(customer_id,amount,date) values ('Sam',200,'2024-07-18');
-```
-**Response**
+
+
+![reward-system-input-db-data-new](https://github.com/user-attachments/assets/8688c3d9-be2e-4281-8356-ea5c3d603977)
+
+
+
+**Response:**
 ```bash
 {
-    "Roxy": {
-        "MAY": 30,
-        "APRIL": 90
+  "data": [
+    {
+      "name": "John",
+      "year": 2024,
+      "monthWisePoints": [
+        {
+          "month": "JULY",
+          "points": 5
+        }
+      ],
+      "totalPoints": 5
     },
-    "Jack": {
-        "FEBRUARY": 160
+    {
+      "name": "Roxy",
+      "year": 2024,
+      "monthWisePoints": [
+        {
+          "month": "JUNE",
+          "points": 40
+        },
+        {
+          "month": "JULY",
+          "points": 10
+        }
+      ],
+      "totalPoints": 50
     },
-    "Sam": {
-        "JULY": 250
+    {
+      "name": "Sam",
+      "year": 2024,
+      "monthWisePoints": [
+        {
+          "month": "JUNE",
+          "points": 150
+        },
+        {
+          "month": "JULY",
+          "points": 250
+        }
+      ],
+      "totalPoints": 400
     }
+  ],
+  "message": "Data Retrieved Successfully.",
+  "status": 200
 }
 ```
 
-![api_postman_screenshot](https://github.com/user-attachments/assets/8d4671c0-72b9-49f8-ab15-ca23bff76e68)
+## Swagger URL
+
+```bash
+http://localhost:9010/retailer-rewards/swagger-ui.html#!/reward45calculation45controller/getRewardsUsingGET
+```
+
+## H2-Database Console URL
+
+```bash
+http://localhost:9010/retailer-rewards/h2-console/
+```
